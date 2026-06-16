@@ -1,0 +1,60 @@
+@import "tailwindcss";
+
+@theme {
+  --color-terracotta-50: #fef8f6;
+  --color-terracotta-100: #fdf1ed;
+  --color-terracotta-200: #fbe2db;
+  --color-terracotta-300: #f7c9be;
+  --color-terracotta-400: #f0a391;
+  --color-terracotta-500: #e27d60;
+  --color-terracotta-600: #c26d5c;
+  --color-terracotta-700: #a35a4d;
+  --color-terracotta-800: #854a40;
+  --color-terracotta-900: #6d3f37;
+  
+  --color-beige-50: #f5f2ed; /* Darkened from fdfbf7 */
+  --color-beige-100: #e8e4db; /* Darkened from f5f2ed */
+  --color-beige-200: #d4cfc1;
+  --color-beige-300: #b9b2a1;
+  --color-beige-400: #a39b88;
+  --color-beige-500: #8c8574;
+}
+
+@layer base {
+  body {
+    @apply bg-beige-100 text-neutral-900 font-sans antialiased selection:bg-terracotta-200 selection:text-terracotta-900;
+    background-image: 
+      radial-gradient(at 0% 0%, hsla(25,30%,90%,1) 0, transparent 50%), 
+      radial-gradient(at 100% 100%, hsla(20,40%,85%,1) 0, transparent 50%),
+      radial-gradient(at 50% 50%, hsla(25,20%,94%,1) 0, transparent 50%);
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-beige-300 rounded-full hover:bg-terracotta-400 transition-colors;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-white/60 backdrop-blur-xl border border-white/40 shadow-2xl;
+  }
+  
+  .premium-shadow {
+    box-shadow: 0 20px 40px -15px rgba(109, 63, 55, 0.15);
+  }
+  
+  .entrance-anim {
+    animation: entrance 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+  
+  @keyframes entrance {
+    from { opacity: 0; transform: translateY(20px) scale(0.98); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+  }
+}
